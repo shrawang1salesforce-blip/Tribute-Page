@@ -1,0 +1,405 @@
+:root {
+  --ink: #202522;
+  --muted: #68716b;
+  --paper: #f4f1e9;
+  --cream: #fbfaf6;
+  --sage: #b6c2ae;
+  --moss: #34443b;
+  --coral: #ce735b;
+  --line: rgba(32, 37, 34, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  color: var(--cream);
+  background: var(--coral);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.container {
+  width: min(1120px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin-bottom: 28px;
+  color: var(--cream);
+  font-size: clamp(4.7rem, 10vw, 9.5rem);
+}
+
+h1 em,
+h2 em {
+  color: var(--coral);
+  font-style: normal;
+}
+
+h2 {
+  font-size: clamp(2.8rem, 5vw, 5rem);
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 720px;
+  overflow: hidden;
+  align-items: center;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(29, 43, 35, 0.98) 16%,
+      rgba(29, 43, 35, 0.72) 53%,
+      rgba(29, 43, 35, 0.22)
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/c/c8/Marie_Curie_c._1920s.jpg")
+      center 28% / cover;
+}
+
+.hero__wash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 76% 22%,
+    rgba(206, 115, 91, 0.38),
+    transparent 25%
+  );
+}
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+.eyebrow,
+.section-label {
+  color: var(--coral);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hero__intro {
+  max-width: 360px;
+  margin-bottom: 36px;
+  color: rgba(251, 250, 246, 0.78);
+  font-size: 1.15rem;
+}
+.scroll-link,
+.text-link {
+  color: var(--cream);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.scroll-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.scroll-link,
+.text-link {
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.scroll-link:hover,
+.scroll-link:focus-visible,
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--coral);
+}
+.scroll-link:focus-visible,
+.text-link:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 6px;
+}
+.scroll-link span {
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--coral);
+  font-size: 1.4rem;
+  vertical-align: middle;
+}
+.hero__credit {
+  position: absolute;
+  right: 40px;
+  bottom: 26px;
+  z-index: 1;
+  margin: 0;
+  color: rgba(251, 250, 246, 0.6);
+  font-size: 0.7rem;
+}
+
+.story {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+.story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  padding-top: 42px;
+}
+.story h2 {
+  max-width: 440px;
+  margin-bottom: 28px;
+}
+.lead {
+  max-width: 430px;
+  color: var(--coral);
+  font-size: 1.3rem;
+  line-height: 1.45;
+}
+.story__copy {
+  padding-top: 10px;
+  color: var(--muted);
+}
+.story__copy p {
+  max-width: 450px;
+  margin-bottom: 24px;
+}
+
+.image-break {
+  background: var(--sage);
+}
+.image-break figure {
+  position: relative;
+  max-width: 1120px;
+  height: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.image-break img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: sepia(0.15) contrast(0.95);
+}
+.image-break figure::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(29, 43, 35, 0.55));
+  content: "";
+  pointer-events: none;
+}
+.image-break figcaption {
+  position: absolute;
+  right: 36px;
+  bottom: 30px;
+  max-width: 330px;
+  color: var(--cream);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  text-align: right;
+}
+.image-break figcaption {
+  z-index: 1;
+}
+
+.milestones {
+  padding-top: 150px;
+  padding-bottom: 155px;
+}
+.milestones__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 50px;
+  padding-top: 42px;
+}
+.milestones__heading h2 {
+  margin-bottom: 0;
+}
+.milestones__heading p {
+  max-width: 330px;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+.timeline {
+  max-width: 800px;
+  margin: 90px auto 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline li {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 38px;
+  padding: 25px 0;
+  border-top: 1px solid var(--line);
+}
+.timeline time {
+  color: var(--coral);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+}
+.timeline h3 {
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+.timeline p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.legacy {
+  background: var(--moss);
+  color: var(--cream);
+}
+.legacy__inner {
+  padding-top: 110px;
+  padding-bottom: 120px;
+}
+.legacy h2 {
+  max-width: 500px;
+  margin: 30px 0 20px;
+}
+.legacy__inner > p:not(.section-label) {
+  max-width: 420px;
+  margin-bottom: 28px;
+  color: rgba(251, 250, 246, 0.7);
+}
+.text-link {
+  border-bottom: 1px solid var(--coral);
+  padding-bottom: 5px;
+}
+.text-link span {
+  margin-left: 8px;
+  color: var(--coral);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .story__grid {
+    gap: 55px;
+  }
+  .milestones__heading {
+    align-items: start;
+    gap: 35px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: min(100% - 40px, 520px);
+  }
+  .hero {
+    min-height: 650px;
+    background-position: 64% center;
+  }
+  .hero__content {
+    padding-top: 100px;
+  }
+  .hero__credit {
+    right: 20px;
+    bottom: 20px;
+    max-width: 180px;
+    text-align: right;
+  }
+  .story,
+  .milestones {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .story__grid,
+  .milestones__heading {
+    display: block;
+  }
+  .story__grid {
+    padding-top: 28px;
+  }
+  .story__copy {
+    padding-top: 20px;
+  }
+  .image-break figure {
+    height: 390px;
+  }
+  .image-break figcaption {
+    right: 20px;
+    bottom: 20px;
+    max-width: 270px;
+    font-size: 1.15rem;
+  }
+  .milestones__heading {
+    padding-top: 28px;
+  }
+  .milestones__heading p {
+    margin-top: 25px;
+  }
+  .timeline {
+    margin-top: 55px;
+  }
+  .timeline li {
+    grid-template-columns: 75px 1fr;
+    gap: 15px;
+  }
+  .legacy__inner {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+  .footer {
+    display: block;
+  }
+  .footer p + p {
+    margin-top: 8px;
+  }
+}
